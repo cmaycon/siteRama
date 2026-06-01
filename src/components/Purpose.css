@@ -1,0 +1,35 @@
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.purpose-card {
+  background-color: white;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border-top: 5px solid var(--primary-yellow);
+}
+
+.purpose-card:hover {
+  transform: translateY(-10px);
+}
+
+.purpose-icon {
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+.purpose-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+}
+
+.purpose-card p {
+  color: #666;
+  line-height: 1.6;
+}

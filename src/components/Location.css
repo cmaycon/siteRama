@@ -1,0 +1,47 @@
+.location-container {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.location-info {
+  flex: 1;
+  text-align: center;
+}
+
+.location-icon {
+  color: var(--primary-yellow);
+  margin-bottom: 20px;
+}
+
+.location-info h3 {
+  margin-bottom: 15px;
+}
+
+.location-info p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.map-placeholder {
+  flex: 2;
+}
+
+.map-box {
+  width: 100%;
+  height: 400px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .location-container {
+    flex-direction: column;
+  }
+}
