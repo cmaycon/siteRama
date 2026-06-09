@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <img src="/assets/images/logo_rama.svg" alt="Ministério Apostólico Ramá" className="footer-logo" />
+          <img src="/logo_rama.svg" alt="Ministério Apostólico Ramá" className="footer-logo" />
         </div>
         <div className="footer-content">
           <p className="verse">"Porque dele e por ele, e para ele, são todas as coisas; glória, pois, a ele eternamente. Amém." - Romanos 11:36</p>
