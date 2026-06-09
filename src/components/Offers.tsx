@@ -1,6 +1,7 @@
 import React from 'react'
 import './Offers.css'
 import { Landmark, QrCode } from 'lucide-react'
+import img_qr-code from '../../assets/images/qr_code.jpg'
 
 const Offers: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const Offers: React.FC = () => {
           <QrCode size={48} className="offers-icon" />
           <h3>PIX</h3>
           <div className="qr-placeholder" style={{ marginTop: '20px' }}>
-            <img src="../../assets/images/qr_code.jpg" alt="QR Code PIX" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '4px solid var(--primary-yellow)' }} />
+            <img src={img_qr-code} alt="QR Code PIX" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '4px solid var(--primary-yellow)' }} />
           </div>
           <p className="pix-key" style={{ marginTop: '15px' }}><strong>CNPJ:</strong> 01.212.631/0001-37</p>
         </div>

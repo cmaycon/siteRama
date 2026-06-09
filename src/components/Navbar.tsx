@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
+import '../../assets/images/logo_rama.svg'
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
