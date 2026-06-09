@@ -1,7 +1,7 @@
 import React from 'react'
 import './Offers.css'
 import { Landmark, QrCode } from 'lucide-react'
-import img_qr-code from '../../assets/images/qr_code.jpg'
+import '../../assets/images/qr_code.jpg'
 
 const Offers: React.FC = () => {
   return (
