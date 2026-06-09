@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import '../../assets/images/logo_rama.svg'
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -40,7 +39,7 @@ const Navbar: React.FC = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="logo">
-          <img src="../../assets/images/logo_rama.svg" alt="Ministério Apostólico Ramá" />
+          <img src="/logo_rama.svg" alt="Ministério Apostólico Ramá" />
         </div>
         <ul className="nav-links">
           <li><a href="#inicio" className={activeSection === 'inicio' ? 'active' : ''}>Início</a></li>
