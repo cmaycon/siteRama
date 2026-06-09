@@ -24,7 +24,7 @@ const Offers: React.FC = () => {
           <QrCode size={48} className="offers-icon" />
           <h3>PIX</h3>
           <div className="qr-placeholder" style={{ marginTop: '20px' }}>
-            <img src="/assets/images/qr_code.jpg" alt="QR Code PIX" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '4px solid var(--primary-yellow)' }} />
+            <img src="../../assets/images/qr_code.jpg" alt="QR Code PIX" style={{ width: '200px', height: '200px', borderRadius: '10px', border: '4px solid var(--primary-yellow)' }} />
           </div>
           <p className="pix-key" style={{ marginTop: '15px' }}><strong>CNPJ:</strong> 01.212.631/0001-37</p>
         </div>
