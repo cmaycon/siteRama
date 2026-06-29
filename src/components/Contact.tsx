@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './Contact.css'
 
 const Contact: React.FC = () => {
@@ -7,11 +7,30 @@ const Contact: React.FC = () => {
     email: '',
     message: ''
   })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Mensagem enviada com sucesso!')
-    setFormData({ name: '', email: '', message: '' })
+    setStatus('loading')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!res.ok) throw new Error()
+
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
+
+    clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => setStatus('idle'), 4000)
   }
 
   return (
@@ -27,6 +46,7 @@ const Contact: React.FC = () => {
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
               required 
+              disabled={status === 'loading'}
             />
           </div>
           <div className="form-group">
@@ -37,6 +57,7 @@ const Contact: React.FC = () => {
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
               required 
+              disabled={status === 'loading'}
             />
           </div>
           <div className="form-group">
@@ -47,9 +68,18 @@ const Contact: React.FC = () => {
               value={formData.message}
               onChange={(e) => setFormData({...formData, message: e.target.value})}
               required
+              disabled={status === 'loading'}
             ></textarea>
           </div>
-          <button type="submit" className="btn-submit">Enviar Mensagem</button>
+          <button type="submit" className="btn-submit" disabled={status === 'loading'}>
+            {status === 'loading' ? 'Enviando...' : 'Enviar Mensagem'}
+          </button>
+          {status === 'success' && (
+            <p className="feedback success">Mensagem enviada com sucesso!</p>
+          )}
+          {status === 'error' && (
+            <p className="feedback error">Erro ao enviar. Tente novamente.</p>
+          )}
         </form>
       </div>
     </section>
