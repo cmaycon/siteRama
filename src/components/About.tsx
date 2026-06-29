@@ -16,7 +16,9 @@ const About: React.FC = () => {
         </div>
         <div className="about-image-placeholder">
           {/* In a real scenario, use an image of the church */}
-          <div className="image-box">IGREJA RAMÁ</div>
+          <div className="image-box">
+            <img src="/foto-frente.jpg" alt="Ministério Ramá" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
+          </div>
         </div>
       </div>
     </section>
