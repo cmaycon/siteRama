@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
 
 const Contact: React.FC = () => {
@@ -15,17 +16,21 @@ const Contact: React.FC = () => {
     setStatus('loading')
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (!res.ok) throw new Error()
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
 
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err)
       setStatus('error')
     }
 
